@@ -1,5 +1,6 @@
 package it.francescobianchi.familybudget.usecase
 
+import it.francescobianchi.familybudget.model.Money
 import it.francescobianchi.familybudget.model.MonthlyBudget
 import it.francescobianchi.familybudget.model.time.Year
 import it.francescobianchi.familybudget.model.request.MonthlyBudgetRequest
@@ -12,7 +13,8 @@ class CreateMonthlyBudgetUseCase(private val monthlyBudgetRepository: MonthlyBud
         monthlyBudgetRepository.createMonthlyBudget(
                 MonthlyBudget(
                         year = Year.of(request.year.toInt()),
-                        month = Month.of(request.month)
+                        month = Month.of(request.month),
+                        budget = Money.of(request.budget)
                 )
         )
     }

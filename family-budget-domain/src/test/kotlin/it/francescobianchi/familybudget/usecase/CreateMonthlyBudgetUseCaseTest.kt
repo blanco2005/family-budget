@@ -1,5 +1,6 @@
 package it.francescobianchi.familybudget.usecase
 
+import it.francescobianchi.familybudget.model.Money
 import it.francescobianchi.familybudget.model.MonthlyBudget
 import it.francescobianchi.familybudget.model.time.Year
 import it.francescobianchi.familybudget.model.request.MonthlyBudgetRequest
@@ -26,7 +27,7 @@ class CreateMonthlyBudgetUseCaseTest {
 
     @Test
     fun `create monthly budget happy path`() {
-        createMonthlyBudgetUseCase.createNewMonthlyBudget(MonthlyBudgetRequest("january", "2020"))
-        verify(monthlyBudgetRepository).createMonthlyBudget(MonthlyBudget(Year.currentYear(), Month.of(1)))
+        createMonthlyBudgetUseCase.createNewMonthlyBudget(MonthlyBudgetRequest("january", "2020", "100.000"))
+        verify(monthlyBudgetRepository).createMonthlyBudget(MonthlyBudget(Year.currentYear(), Month.of(1), Money.of("100.000")))
     }
 }

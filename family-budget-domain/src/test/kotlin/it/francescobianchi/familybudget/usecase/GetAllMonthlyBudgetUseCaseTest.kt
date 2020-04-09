@@ -1,5 +1,6 @@
 package it.francescobianchi.familybudget.usecase
 
+import it.francescobianchi.familybudget.model.Money
 import it.francescobianchi.familybudget.model.MonthlyBudget
 import it.francescobianchi.familybudget.model.time.Month
 import it.francescobianchi.familybudget.model.time.Year
@@ -30,15 +31,15 @@ class GetAllMonthlyBudgetUseCaseTest {
     fun `get all monthly budgets happy path`() {
         `when`(monthlyBudgetRepository.findAll())
                 .thenReturn(setOf(
-                        MonthlyBudget(Year.of(2020), Month.of(1)),
-                        MonthlyBudget(Year.of(2020), Month.of(2))
+                        MonthlyBudget(Year.of(2020), Month.of(1), Money.of("100.00")),
+                        MonthlyBudget(Year.of(2020), Month.of(2), Money.of("100.00"))
                 ))
 
         val result = getAllMonthlyBudgetUseCase.getAllMonthlyBudgets()
 
         assertThat(result, `is`(setOf(
-                MonthlyBudget(Year.of(2020), Month.of(1)),
-                MonthlyBudget(Year.of(2020), Month.of(2))
+                MonthlyBudget(Year.of(2020), Month.of(1), Money.of("100.00")),
+                MonthlyBudget(Year.of(2020), Month.of(2), Money.of("100.00"))
         )))
 
         verify(monthlyBudgetRepository).findAll()

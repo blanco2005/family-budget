@@ -1,6 +1,6 @@
 package it.francescobianchi.familybudget.model.time
 
-class Month private constructor(month: Int) {
+data class Month private constructor(val month: Int) {
 
     companion object {
 
