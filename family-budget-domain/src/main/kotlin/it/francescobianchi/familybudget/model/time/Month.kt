@@ -32,7 +32,7 @@ data class Month private constructor(val month: Int) {
             "october" -> OCTOBER
             "november" -> NOVEMBER
             "december" -> DECEMBER
-            else -> throw NotAValidMonthException()
+            else -> throw InvalidMonthException()
         }
     }
 
