@@ -1,6 +1,7 @@
 package it.francescobianchi.familybudget.model
 
-data class MonthlyBudget (val month: Month,
-                     val year: Year) {
+data class MonthlyBudget (
+        val year: Year,
+        val month: Month) {
 
 }

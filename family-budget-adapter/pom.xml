@@ -11,5 +11,13 @@
 
   <artifactId>family-budget-adapter</artifactId>
 
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>family-budget-domain</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+
 
 </project>

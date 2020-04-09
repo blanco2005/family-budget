@@ -1,16 +1,16 @@
 package it.francescobianchi.familybudget.model
 
 enum class Month(val month: String, val numberOfDays: Int) {
-    JANUARY("January", 31),
-    FEBRUARY("February", 28),
-    MARCH("March", 31),
-    APRIL("April", 30),
-    MAY("May", 31),
-    JUNE("June", 30),
-    JULY("July", 31),
-    AUGUST("August", 31),
-    SEPTEMBER("September", 30),
-    OCTOBER("October", 31),
-    NOVEMBER("November", 30),
-    DECEMBER("December",31)
+    JANUARY("january", 31),
+    FEBRUARY("february", 28),
+    MARCH("march", 31),
+    APRIL("april", 30),
+    MAY("may", 31),
+    JUNE("june", 30),
+    JULY("july", 31),
+    AUGUST("august", 31),
+    SEPTEMBER("september", 30),
+    OCTOBER("october", 31),
+    NOVEMBER("november", 30),
+    DECEMBER("december",31)
 }
