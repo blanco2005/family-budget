@@ -1,8 +1,8 @@
 package it.francescobianchi.familybudget.usecase
 
-import it.francescobianchi.familybudget.model.Month
 import it.francescobianchi.familybudget.model.MonthlyBudget
-import it.francescobianchi.familybudget.model.Year
+import it.francescobianchi.familybudget.model.time.Month
+import it.francescobianchi.familybudget.model.time.Year
 import it.francescobianchi.familybudget.repository.MonthlyBudgetRepository
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -30,15 +30,15 @@ class GetAllMonthlyBudgetUseCaseTest {
     fun `get all monthly budgets happy path`() {
         `when`(monthlyBudgetRepository.findAll())
                 .thenReturn(setOf(
-                        MonthlyBudget(Year("2020"), Month.JANUARY),
-                        MonthlyBudget(Year("2020"), Month.FEBRUARY)
+                        MonthlyBudget(Year.of(2020), Month.of(1)),
+                        MonthlyBudget(Year.of(2020), Month.of(2))
                 ))
 
         val result = getAllMonthlyBudgetUseCase.getAllMonthlyBudgets()
 
         assertThat(result, `is`(setOf(
-                MonthlyBudget(Year("2020"), Month.JANUARY),
-                MonthlyBudget(Year("2020"), Month.FEBRUARY)
+                MonthlyBudget(Year.of(2020), Month.of(1)),
+                MonthlyBudget(Year.of(2020), Month.of(2))
         )))
 
         verify(monthlyBudgetRepository).findAll()
