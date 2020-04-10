@@ -1,10 +1,10 @@
 package it.francescobianchi.familybudget.model.request
 
-import it.francescobianchi.familybudget.model.Money
-import it.francescobianchi.familybudget.model.expense.Category
+import it.francescobianchi.familybudget.model.time.Date
 
 data class AddExpenseRequest(
-        val category: Category,
-        val money: Money,
-        val description: String
+        val category: String,
+        val money: String,
+        val description: String,
+        val date: Date = Date.today()
 )

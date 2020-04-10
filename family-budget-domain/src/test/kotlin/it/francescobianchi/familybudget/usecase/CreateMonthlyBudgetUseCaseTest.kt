@@ -2,6 +2,7 @@ package it.francescobianchi.familybudget.usecase
 
 import it.francescobianchi.familybudget.model.Money
 import it.francescobianchi.familybudget.model.MonthlyBudget
+import it.francescobianchi.familybudget.model.expense.Category
 import it.francescobianchi.familybudget.model.time.Year
 import it.francescobianchi.familybudget.model.request.MonthlyBudgetRequest
 import it.francescobianchi.familybudget.model.time.Month
@@ -27,7 +28,28 @@ class CreateMonthlyBudgetUseCaseTest {
 
     @Test
     fun `create monthly budget happy path`() {
-        createMonthlyBudgetUseCase.createNewMonthlyBudget(MonthlyBudgetRequest("january", "2020", "100.000"))
-        verify(monthlyBudgetRepository).createMonthlyBudget(MonthlyBudget(Year.currentYear(), Month.of(1), Money.of("100.000")))
+        createMonthlyBudgetUseCase.createNewMonthlyBudget(
+                MonthlyBudgetRequest(
+                        month = "january",
+                        year = "2020",
+                        categories2budget = hashMapOf(
+                                "dinner" to "200.00",
+                                "home" to "100.00"
+                        ),
+                        expenses = emptyList()
+                )
+        )
+
+        verify(monthlyBudgetRepository).createMonthlyBudget(
+                MonthlyBudget(
+                        year = Year.currentYear(),
+                        month = Month.of(1),
+                        categories2budget = hashMapOf(
+                                Category("dinner") to Money.of("200.00"),
+                                Category("home") to Money.of("100.00")
+                        ),
+                        expenses = arrayListOf()
+                )
+        )
     }
 }

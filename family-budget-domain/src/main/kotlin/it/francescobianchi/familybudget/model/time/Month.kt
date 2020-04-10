@@ -1,5 +1,7 @@
 package it.francescobianchi.familybudget.model.time
 
+import java.time.LocalDate
+
 data class Month private constructor(val month: Int) {
 
     companion object {
@@ -20,20 +22,22 @@ data class Month private constructor(val month: Int) {
         fun of(month: Int) = Month(month);
 
         fun of(month: String) = when(month.toLowerCase()) {
-            "january" -> JANUARY
-            "february" -> FEBRUARY
-            "march" -> MARCH
-            "april" -> APRIL
-            "may" -> MAY
-            "june" -> JUNE
-            "july" -> JULY
-            "august" -> AUGUST
-            "september" -> SEPTEMBER
-            "october" -> OCTOBER
-            "november" -> NOVEMBER
-            "december" -> DECEMBER
+            "january", "01" -> JANUARY
+            "february", "02" -> FEBRUARY
+            "march", "03" -> MARCH
+            "april", "04" -> APRIL
+            "may", "05" -> MAY
+            "june", "06" -> JUNE
+            "july", "07" -> JULY
+            "august", "08" -> AUGUST
+            "september", "09" -> SEPTEMBER
+            "october", "10" -> OCTOBER
+            "november", "11" -> NOVEMBER
+            "december", "12" -> DECEMBER
             else -> throw InvalidMonthException()
         }
+
+        fun currentMonth() = Month(LocalDate.now().monthValue)
     }
 
 }
