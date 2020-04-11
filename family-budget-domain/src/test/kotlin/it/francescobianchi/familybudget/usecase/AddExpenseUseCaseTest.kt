@@ -58,14 +58,12 @@ class AddExpenseUseCaseTest {
     @Test
     fun `create new expense when mounthly budget does not exist`() {
         val expectedExpense = Expense(Category("Dinner"), Money.of("95.66"), "desc", Date.today())
-        val newMonthlyBudgetToUpdate = MonthlyBudget(Year.currentYear(), Month.currentMonth(), emptyMap(), arrayListOf())
+        val newMonthlyBudgetToUpdate = MonthlyBudget(Year.currentYear(), Month.currentMonth(), emptyMap(), arrayListOf(expectedExpense))
 
         `when`(monthlyBudgetRepository.findByYearAndMonth(Year.currentYear(), Month.currentMonth()))
                 .thenReturn(Optional.empty())
 
         addExpenseUseCase.addExpense(AddExpenseRequest("Dinner", "95.66", "desc"))
-
-        assertThat(newMonthlyBudgetToUpdate.expenses, hasItem(expectedExpense))
 
         verify(expenseRepository).createExpense(expectedExpense)
         verify(monthlyBudgetRepository).findByYearAndMonth(Year.currentYear(), Month.currentMonth())
