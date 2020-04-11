@@ -10,9 +10,7 @@ import it.francescobianchi.familybudget.model.time.Month
 import it.francescobianchi.familybudget.model.time.Year
 import it.francescobianchi.familybudget.repository.ExpenseRepository
 import it.francescobianchi.familybudget.repository.MonthlyBudgetRepository
-import org.hamcrest.CoreMatchers
 import org.hamcrest.CoreMatchers.*
-import org.hamcrest.MatcherAssert
 import org.hamcrest.MatcherAssert.*
 import org.junit.Before
 import org.junit.Test
@@ -60,7 +58,7 @@ class AddExpenseUseCaseTest {
     @Test
     fun `create new expense when mounthly budget does not exist`() {
         val expectedExpense = Expense(Category("Dinner"), Money.of("95.66"), "desc", Date.today())
-        val newMonthlyBudgetToUpdate = MonthlyBudget(Year.currentYear(), Month.currentMonth(), emptyMap(), arrayListOf(expectedExpense))
+        val newMonthlyBudgetToUpdate = MonthlyBudget(Year.currentYear(), Month.currentMonth(), emptyMap(), arrayListOf())
 
         `when`(monthlyBudgetRepository.findByYearAndMonth(Year.currentYear(), Month.currentMonth()))
                 .thenReturn(Optional.empty())
