@@ -6,6 +6,7 @@ import it.francescobianchi.familybudget.repository.MonthlyBudgetRepository
 import it.francescobianchi.familybudget.usecase.AddExpenseUseCase
 import it.francescobianchi.familybudget.usecase.CreateMonthlyBudgetUseCase
 import it.francescobianchi.familybudget.usecase.GetAllMonthlyBudgetUseCase
+import it.francescobianchi.familybudget.usecase.GetCurrentMonthlyBudgetUseCase
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -20,6 +21,11 @@ class UseCaseConfiguration {
     @Bean
     fun getAllMonthlyBudgetUseCase(monthlyBudgetRepository: MonthlyBudgetRepository): GetAllMonthlyBudgetUseCase {
         return GetAllMonthlyBudgetUseCase(monthlyBudgetRepository)
+    }
+
+    @Bean
+    fun getCurrentMonthlyBudgetUseCase(monthlyBudgetRepository: MonthlyBudgetRepository): GetCurrentMonthlyBudgetUseCase {
+        return GetCurrentMonthlyBudgetUseCase(monthlyBudgetRepository)
     }
 
     @Bean
