@@ -22,19 +22,14 @@ class AddExpenseUseCase(val monthlyBudgetRepository: MonthlyBudgetRepository, va
         )
         val monthlyBudget = monthlyBudgetRepository.findByYearAndMonth(Year.currentYear(), Month.currentMonth())
 
-        if (!monthlyBudget.isPresent) {
-            monthlyBudgetRepository.createMonthlyBudget(
-                    MonthlyBudget(
-                            Year.currentYear(),
-                            Month.currentMonth(),
-                            hashMapOf(),
-                            arrayListOf(expense)
-                    )
-            )
-        }
-        else {
-            monthlyBudget.get().expenses.add(expense)
-        }
+        monthlyBudget.ifPresentOrElse(
+                { monthlyBudget -> monthlyBudget.expenses.add(expense) },
+                { monthlyBudgetRepository.createMonthlyBudget(
+                        MonthlyBudget(Year.currentYear(), Month.currentMonth(), hashMapOf(), arrayListOf(expense))
+                )
+                }
+        )
+
         expenseRepository.createExpense(
                 expense
         )
