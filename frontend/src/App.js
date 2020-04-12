@@ -1,37 +1,26 @@
-import React, {Component, useState, useEffect} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './index.css';
 
-function App() {
-  const [message, setMessage] = useState("");
+class Category extends React.Component {
 
-  useEffect(() => {
-    fetch('/monthlybudget/current')
-    .then(response => response.text())
-    .then(message => {
-      setMessage(message);
-    });
-  },[])
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: `Benzina`,
+      budget: 200
+    };
+  }
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          {message}
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+  render() {
+    return (
+        <div
+            className="category-container"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          {this.state.name}
+          {this.state.budget}
+        </div>
+    );
+  }
 }
 
-export default App;
+export default Category;
