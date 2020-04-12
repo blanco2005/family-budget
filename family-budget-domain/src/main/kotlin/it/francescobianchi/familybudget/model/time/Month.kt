@@ -39,5 +39,4 @@ data class Month private constructor(val month: Int) {
 
         fun currentMonth() = Month(LocalDate.now().monthValue)
     }
-
 }
