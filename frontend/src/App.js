@@ -1,26 +1,27 @@
 import React from 'react';
 import './index.css';
+import Category from "./Category/Category";
 
-class Category extends React.Component {
+class MonthlyBudget extends React.Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
-      name: `Benzina`,
-      budget: 200
-    };
+      month: `April`,
+      year: `2020`
+    }
   }
 
   render() {
     return (
-        <div
-            className="category-container"
-        >
-          {this.state.name}
-          {this.state.budget}
+        <div className="monthly-budget">
+          <h1>Budget of {this.state.month} {this.state.year}</h1>
+          <Category name="Benzina" budget="120" />
+          <Category name="Cene" budget="200" />
         </div>
     );
   }
 }
 
-export default Category;
+export default MonthlyBudget;

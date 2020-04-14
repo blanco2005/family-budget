@@ -42,7 +42,7 @@ class GetCurrentMonthlyBudgetUseCaseTest {
 
     @Test
     fun `get current monthly budget when deos not exist`() {
-        val expectedResult = MonthlyBudget(Year.currentYear(), Month.currentMonth(), emptyMap(), arrayListOf())
+        val expectedResult = MonthlyBudget(Year.currentYear(), Month.currentMonth(), MonthlyBudget.defaultCategories(), arrayListOf())
 
         `when`(monthlyBudgetRepository.findByYearAndMonth(Year.currentYear(), Month.currentMonth()))
                 .thenReturn(Optional.empty())

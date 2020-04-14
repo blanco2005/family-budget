@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Game from './App';
+import MonthlyBudget from './App';
 import * as serviceWorker from './serviceWorker';
 
 // ReactDOM.render(
@@ -12,7 +12,7 @@ import * as serviceWorker from './serviceWorker';
 // );
 
 ReactDOM.render(
-    <Game />,
+    <MonthlyBudget />,
     document.getElementById('root')
 );
 
