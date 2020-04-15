@@ -1,10 +1,11 @@
 package it.francescobianchi.familybudget.web.model
 
-import it.francescobianchi.familybudget.model.expense.Expense
-
 class MonthlyBudgetResponse (
         val year: Int,
         val month: Int,
-        val categories2budget: Map<String, String>,
+        val categories2budget: List<CategoryToBudget>,
         val expenses: List<ExpenseResponse>
+
 )
+
+class CategoryToBudget(val name: String, val money: String)
