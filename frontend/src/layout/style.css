@@ -1,0 +1,16 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: #3CB371
+}
+
+.main {
+  width: 80%;
+  background-color: white;
+  margin: auto;
+  height: 100%;
+  padding-top: 20px;
+}
