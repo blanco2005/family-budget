@@ -1,5 +1,6 @@
 import React from 'react';
 import "../index.css"
+import Progress from "./Progress";
 
 class Category extends React.Component {
   constructor(props) {
@@ -7,10 +8,13 @@ class Category extends React.Component {
   }
 
   render() {
+
+    // TODO assign variant based on remaining value variant=success, info, warning, danger
+
     return (
         <div className="Category">
-          <p>{this.props.name}</p>
-          <p>{this.props.budget}</p>
+          <p style={{textAlign:"left", paddingLeft:"20px"}}>{this.props.name}</p>
+          <Progress budget={this.props.budget}/>
         </div>
     );
   }
