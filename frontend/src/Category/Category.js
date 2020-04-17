@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Category.css"
+import "../index.css"
 
 class Category extends React.Component {
   constructor(props) {

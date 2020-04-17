@@ -1,6 +1,6 @@
 import React from "react";
 import Category from "../category/Category";
-import './style.css'
+import '../index.css'
 
 const monthlyBudgetPage = (props) => {
   return (

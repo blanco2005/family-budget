@@ -13,3 +13,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.monthly-budget-page {
+  text-align: center;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: #3CB371
+}
+
+.main {
+  width: 80%;
+  background-color: white;
+  margin: auto;
+  height: 100%;
+  padding-top: 20px;
+}
+
+.Category {
+  width: 60%;
+  margin: auto;
+  border: 1px solid #eeeeee;
+  box-shadow: 0 2px 3px #ccc;
+  padding: 6px;
+  text-align: center;
+}
